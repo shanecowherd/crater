@@ -12,8 +12,8 @@ services:
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
-      - /share/Container/crater-data/:/var/www
-      - /share/Container/crater-data/docker-compose/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:rw,delegated
+      - ./:/var/www
+      - ./docker-compose/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:rw,delegated
     networks:
       - crater
 
@@ -41,8 +41,8 @@ services:
     ports:
       - 50066:80
     volumes:
-      - /share/Container/crater-data/:/var/www
-      - /share/Container/crater-data/docker-compose/nginx:/etc/nginx/conf.d/
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
     networks:
       - crater
 
